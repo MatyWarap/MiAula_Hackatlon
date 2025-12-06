@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}Progreso de Alumnos{% endblock %}
+
+{% block content %}
+
+<h2 class="fw-bold mb-4 text-center">📊 Progreso de los Alumnos</h2>
+
+<!-- FILTROS -->
+<form method="GET" class="row mb-4">
+    <div class="col-md-4">
+        <label>Alumno</label>
+        <select name="alumno" class="form-select">
+            <option value="">Todos</option>
+            {% for a in alumnos %}
+                <option value="{{ a.id_user }}" 
+                        {% if alumno_filtro == a.id_user %} selected {% endif %}>
+                    {{ a.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="col-md-4">
+        <label>Materia</label>
+        <select name="materia" class="form-select">
+            <option value="">Todas</option>
+            {% for m in materias %}
+                <option value="{{ m }}"
+                        {% if materia_filtro == m %} selected {% endif %}>
+                    {{ m }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="col-md-4">
+        <label>&nbsp;</label>
+        <button class="btn btn-primary w-100">Filtrar</button>
+    </div>
+</form>
+
+<!-- TABLA -->
+<div class="card p-3 shadow-sm">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Alumno</th>
+                <th>Materia</th>
+                <th>Puntaje</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in resultados %}
+            <tr>
+                <td>{{ r.user.name }}</td>
+                <td>{{ r.materia }}</td>
+                <td>{{ r.puntaje }}/{{ r.total }}</td>
+                <td>{{ r.fecha.strftime('%d/%m/%Y %H:%M') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Trivia - {{ materia }}{% endblock %}
+
+{% block content %}
+
+<h2 class="fw-bold text-center mb-4">🎯 Trivia de {{ materia }}</h2>
+
+<form method="POST">
+
+    {% for p in preguntas %}
+    <div class="main-card mb-4"
+         style="border-radius: 18px; padding: 20px;">
+
+        <h4 class="fw-bold mb-3">{{ loop.index }}. {{ p.pregunta }}</h4>
+
+        {% for opcion in p.opciones %}
+        <div class="form-check mb-2">
+            <input class="form-check-input"
+                   type="radio"
+                   name="{{ p.id }}"
+                   id="{{ p.id }}_{{ loop.index }}"
+                   value="{{ opcion }}" required>
+            <label class="form-check-label">{{ opcion }}</label>
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endfor %}
+
+    <button class="btn btn-success btn-main w-100">
+        Finalizar Trivia
+    </button>
+</form>
+
+{% endblock %}

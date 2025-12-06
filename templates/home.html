@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Bienvenido a Mi Aula{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+
+        <div class="main-card text-center">
+            <h2 class="mb-3 fw-bold">🎓 Bienvenido a Mi Aula</h2>
+            <p class="text-muted mb-4">Aprendé jugando, avanzá por niveles y mejorá cada día.</p>
+
+            <a href="{{ url_for('users.user_login') }}" class="btn btn-primary btn-main w-100 mb-3">
+                Iniciar Sesión
+            </a>
+
+            <a href="{{ url_for('users.user_register') }}" class="btn btn-success btn-main w-100">
+                Registrarse
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
