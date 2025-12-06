@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}Panel del Docente{% endblock %}
+
+{% block content %}
+
+<div class="main-card text-center">
+
+    <h2 class="fw-bold">📊 Panel del Docente</h2>
+    <p class="text-muted">Gestioná actividades y revisá el progreso de tus alumnos.</p>
+
+    <div class="row mt-4 justify-content-center">
+
+        <div class="col-md-6 mb-3">
+
+            <!-- Botón para editar/crear preguntas -->
+            <a href="{{ url_for('users.listar_preguntas') }}" 
+               class="btn btn-warning btn-main w-100 mb-3">
+                ✏️ Crear / Editar Preguntas
+            </a>
+
+            <!-- Botón para ver progreso -->
+            <a href="{{ url_for('users.resultados_docente') }}" 
+               class="btn btn-secondary w-100">
+                Ver Progreso de Alumnos
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

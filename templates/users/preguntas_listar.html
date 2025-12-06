@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}Preguntas{% endblock %}
+
+{% block content %}
+<h2 class="fw-bold mb-3 text-center">📋 Preguntas Cargadas</h2>
+
+<a href="{{ url_for('users.nueva_pregunta') }}" class="btn btn-success mb-3">
+    ➕ Nueva Pregunta
+</a>
+
+<div class="card p-4 shadow-sm">
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Materia</th>
+                <th>Pregunta</th>
+                <th>Correcta</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for p in preguntas %}
+            <tr>
+                <td>{{ p.materia }}</td>
+                <td>{{ p.pregunta }}</td>
+                <td>{{ p.respuesta_correcta }}</td>
+                <td>
+                    <a class="btn btn-warning btn-sm"
+                       href="{{ url_for('users.editar_pregunta', id=p.id_pregunta) }}">
+                       ✏ Editar
+                    </a>
+
+                    <a class="btn btn-danger btn-sm"
+                       href="{{ url_for('users.eliminar_pregunta', id=p.id_pregunta) }}"
+                       onclick="return confirm('¿Eliminar esta pregunta?');">
+                       🗑 Eliminar
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+{% endblock %}

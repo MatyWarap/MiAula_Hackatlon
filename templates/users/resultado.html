@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Resultado{% endblock %}
+
+{% block content %}
+
+<div class="main-card text-center">
+
+    <h2 class="fw-bold mb-3">🎉 ¡Trivia Completada!</h2>
+
+    <h3>Materia: <b>{{ materia }}</b></h3>
+
+    <div class="display-4 fw-bold mt-3">
+        {{ puntaje }} / {{ total }}
+    </div>
+
+    {% if puntaje == total %}
+        <p class="text-success fw-bold mt-3">¡Perfecto! 🏆</p>
+    {% elif puntaje >= total / 2 %}
+        <p class="text-primary mt-3">¡Muy bien! 💪</p>
+    {% else %}
+        <p class="text-danger mt-3">¡Seguí practicando! 😊</p>
+    {% endif %}
+
+    <a href="{{ url_for('users.materias') }}" class="btn btn-info btn-main mt-4">
+        Volver a Materias
+    </a>
+
+</div>
+
+{% endblock %}

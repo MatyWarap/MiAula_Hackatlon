@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Panel del Alumno{% endblock %}
+
+{% block content %}
+<div class="main-card text-center">
+
+    <h2 class="fw-bold">👋 ¡Hola {{ session.get('name') }}!</h2>
+    <p class="lead">Elegí una materia para comenzar tu aventura educativa.</p>
+
+    <div class="row mt-4">
+        <div class="col-md-6 mb-3">
+            <a href="#" class="btn btn-danger btn-main w-100">📘 Lengua</a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <a href="#" class="btn btn-primary btn-main w-100">🔢 Matemática</a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <a href="#" class="btn btn-warning btn-main w-100">🌍 Ciencias Sociales</a>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <a href="#" class="btn btn-success btn-main w-100">🧪 Ciencias Naturales</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Elige una Materia{% endblock %}
+
+{% block content %}
+
+<h2 style="color: white;" class="fw-bold text-center mb-4">📚 Elegí una Materia</h2>
+
+<div class="row justify-content-center">
+
+    {% for materia, emoji, color in materias %}
+    <div class="col-md-3 col-6 mb-4">
+
+        <a href="{{ url_for('users.trivia', materia=materia) }}" 
+           class="text-decoration-none">
+
+            <div class="main-card text-center {{ color }} text-white"
+                 style="border-radius: 20px; padding: 25px; transition: 0.3s; cursor: pointer;">
+
+                <div style="font-size: 2.5rem;">{{ emoji }}</div>
+                <h5 class="mt-2 fw-bold">{{ materia }}</h5>
+
+            </div>
+
+        </a>
+
+    </div>
+    {% endfor %}
+
+    <div>
+        <a href="" 
+        class="btn btn-secondary btn-main w-100 mb-3">
+        Ayuda
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

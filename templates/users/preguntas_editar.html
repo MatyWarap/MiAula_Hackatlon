@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Editar Pregunta{% endblock %}
+
+{% block content %}
+<h2 class="fw-bold mb-4 text-center">✏ Editar Pregunta</h2>
+
+<form method="POST" class="card p-4 shadow">
+
+    <label>Materia</label>
+    <select name="materia" class="form-select mb-3">
+        {% for m in materias %}
+            <option value="{{ m }}" 
+                {% if m == pregunta.materia %} selected {% endif %}>
+                {{ m }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label>Pregunta</label>
+    <input class="form-control mb-3" name="pregunta" value="{{ pregunta.pregunta }}" required>
+
+    <label>Opción 1</label>
+    <input class="form-control mb-3" name="op1" value="{{ pregunta.opcion1 }}" required>
+
+    <label>Opción 2</label>
+    <input class="form-control mb-3" name="op2" value="{{ pregunta.opcion2 }}" required>
+
+    <label>Opción 3</label>
+    <input class="form-control mb-3" name="op3" value="{{ pregunta.opcion3 }}" required>
+
+    <label>Respuesta Correcta</label>
+    <input class="form-control mb-4" name="correcta" 
+           value="{{ pregunta.respuesta_correcta }}" required>
+
+    <button class="btn btn-primary w-100">Guardar Cambios</button>
+
+</form>
+{% endblock %}

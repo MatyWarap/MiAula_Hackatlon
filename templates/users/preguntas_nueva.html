@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}Nueva Pregunta{% endblock %}
+
+{% block content %}
+<h2 class="fw-bold mb-4 text-center">➕ Nueva Pregunta</h2>
+
+<form method="POST" class="card p-4 shadow">
+
+    <label>Materia</label>
+    <select name="materia" class="form-select mb-3">
+        {% for m in materias %}
+            <option value="{{ m }}">{{ m }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Pregunta</label>
+    <input class="form-control mb-3" name="pregunta" required>
+
+    <label>Opción 1</label>
+    <input class="form-control mb-3" name="op1" required>
+
+    <label>Opción 2</label>
+    <input class="form-control mb-3" name="op2" required>
+
+    <label>Opción 3</label>
+    <input class="form-control mb-3" name="op3" required>
+
+    <label>Respuesta Correcta</label>
+    <input class="form-control mb-4" name="correcta" required>
+
+    <button class="btn btn-success w-100">Guardar Pregunta</button>
+
+</form>
+{% endblock %}
